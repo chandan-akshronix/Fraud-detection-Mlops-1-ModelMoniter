@@ -13,14 +13,14 @@
     "MonitoringJobInstanceType": "ml.m5.large",
     "MonitoringJobInstanceCount": "1",
     "MonitoringJobInstanceVolumeSizeInGB": "20",
-    "ProblemType": "Regression",
+    "ProblemType": "BinaryClassification",
     "InferenceAttribute": "0",
     "ProbabilityAttribute": "",
     "FeaturesAttribute": "",
     "ProbabilityThresholdAttribute": "",
     "DataQualityMaxRuntimeInSeconds": "3300",
-    "ModelQualityMaxRuntimeInSeconds": "1800",
-    "ModelBiasMaxRuntimeInSeconds": "1800",
+    "ModelQualityMaxRuntimeInSeconds": "3000",
+    "ModelBiasMaxRuntimeInSeconds": "3000",
     "ModelExplainabilityMaxRuntimeInSeconds": "3600"
   }
 }

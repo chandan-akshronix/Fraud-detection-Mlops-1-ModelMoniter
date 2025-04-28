@@ -13,7 +13,7 @@
     "MonitoringJobInstanceType": "ml.m5.large",
     "MonitoringJobInstanceCount": "1",
     "MonitoringJobInstanceVolumeSizeInGB": "20",
-    "ProblemType": "Regression",
+    "ProblemType": "BinaryClassification",
     "InferenceAttribute": "0",
     "ProbabilityAttribute": "",
     "FeaturesAttribute": "",
