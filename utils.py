@@ -149,13 +149,19 @@ def get_baselines_and_model_name(endpoint_name: str, sm_client: botocore.client)
         "ModelName"
     ]
 
-    # get the ModelPackageName using ModelName
-    model_package_name = sm_client.describe_model(ModelName=model_name)["Containers"][0]["ModelPackageName"]
+    # Get the model's ARN and retrieve its tags
+    model_description = sm_client.describe_model(ModelName=model_name)
+    tags = sm_client.list_tags(ResourceArn=model_description["ModelArn"])["Tags"]
+    model_package_arn = next((tag["Value"] for tag in tags if tag["Key"] == "ModelPackageArn"), None)
 
-    # get the baselines from Model Registry using ModelPackageName
-    raw_baselines = sm_client.describe_model_package(ModelPackageName=model_package_name).get("DriftCheckBaselines", {})
+    if model_package_arn is None:
+        raise ValueError("ModelPackageArn tag not found on the model")
 
-    # re-format the baselines
+
+    # Get the baselines from Model Registry using ModelPackageArn
+    raw_baselines = sm_client.describe_model_package(ModelPackageName=model_package_arn).get("DriftCheckBaselines", {})
+
+    # Re-format the baselines
     result = {key: {k: raw_baselines[key][k]["S3Uri"] for k in raw_baselines.get(key)} for key in raw_baselines}
 
     return {"DriftCheckBaselines": result, "ModelName": model_name}
