@@ -9,7 +9,7 @@
     "ModelQualityScheduleExpression": "cron(0 * ? * * *)",
     "ModelBiasScheduleExpression": "cron(0 * ? * * *)",
     "ModelExplainabilityScheduleExpression": "cron(0 * ? * * *)",
-    "GroundTruthInput":"s3://sagemaker-project-p-xmwmybkjxgt0/GroundTruth/",
+    "GroundTruthInput":"",
     "MonitoringJobInstanceType": "ml.m5.large",
     "MonitoringJobInstanceCount": "1",
     "MonitoringJobInstanceVolumeSizeInGB": "20",
