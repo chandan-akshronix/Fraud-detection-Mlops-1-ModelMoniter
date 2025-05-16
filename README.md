@@ -131,13 +131,6 @@ The monitoring setup is automated via AWS CodeBuild and CloudFormation. Follow t
 - **ModelDeploy**: Deploys the endpoint monitored here.
 - **ModelMoniter**: Configures and deploys monitoring schedules.
 
-## Suggestions for Improvement
-
-- **Alerting**: Integrate with Amazon SNS for notifications.
-- **Visualization**: Use QuickSight or Grafana for outputs.
-- **Automation**: Automate ground truth labeling.
-- **Security**: Encrypt S3 buckets and restrict IAM roles.
-
 ## License
 
 This project is licensed under the terms specified in the `LICENSE` file (if available).
